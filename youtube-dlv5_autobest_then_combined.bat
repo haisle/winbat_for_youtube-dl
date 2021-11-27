@@ -12,7 +12,7 @@ echo;
 
 goto:both
 :both
-	youtube-dl -f bestvideo+bestaudio --yes-playlist %url% -o "%~dp0combined\%%(playlist)s\%%(title)s-%%(id)s.%%(ext)s"
+	youtube-dl -f bestvideo+bestaudio --yes-playlist --write-thumbnail %url% -o "%~dp0combined\%%(playlist)s\%%(title)s-%%(id)s.%%(ext)s"
 goto:fin
 :fin
 
