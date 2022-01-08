@@ -1,2 +1,2 @@
-# winbat_for_youtube-dl
-This is a sample bat file code to use yt-dlp for windows command prompt.
+# windows_bat_ytdl
+This is a sample batch files for yt-dlp using windows command prompt.
