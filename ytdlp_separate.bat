@@ -5,7 +5,7 @@ echo Please paste the URL.
 echo ctl + v to paste the URL.
 echo;
 set /p preurl=""
-rem this part remove timestamp t=xxx from %preurl%
+rem this part is for removing timestamp t=xxx from %preurl%
 for /f "tokens=1 delims=&" %%a in ("%preurl%") do (set url=%%a)
 echo;
 echo %url%
@@ -14,7 +14,12 @@ echo;
 
 goto:both
 :both
-	yt-dlp -f bestvideo+bestaudio --yes-playlist --write-thumbnail --merge-output-format mkv --download-archive "%~dp0combined\ytdlpdownloaded.txt" %url% -o "%~dp0combined\%%(playlist)s\%%(channel)s-%%(channel_id)s\%%(title)s-%%(upload_date)s-%%(id)s.%%(ext)s"
+	echo download したい動画ファイルのfomat code は？
+	set /p vf=""
+	echo download したい音声ファイルのfomat code は？
+	set /p sf=""
+	echo;
+	yt-dlp -f %vf%+%sf% --yes-playlist --write-thumbnail --merge-output-format mkv --download-archive "%~dp0\ytdlpdownloaded_list.txt" %url% -o "%~dp0combined\%%(playlist)s\%%(channel)s-%%(channel_id)s\%%(title)s-%%(upload_date)s-%%(id)s.%%(ext)s"
 goto:fin
 :fin
 
